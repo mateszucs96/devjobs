@@ -1,0 +1,65 @@
+:root {
+  --clr-primary-100: #5964E0;
+  --clr-primary-300: #939BF4;
+  --clr-primary-500: #19202D;
+  --clr-primary-700: #121721;
+
+  --clr-secondary-100: #FFFFFF;
+  --clr-secondary-300: #F4F6F8;
+  --clr-secondary-500: #9DAEC2;
+  --clr-secondary-700: #6E8098;
+
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  background-color: var(--clr-secondary-300);
+
+}
+
+h1 {
+  font-size: 2.8rem;
+  line-height: 3.4rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+  line-height: 2.9rem;
+}
+
+h3 {
+  font-size: 2rem;
+  line-height: 2.4rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+}
+
+.circle {
+  border-radius: 100px;
+  background-color: var(--clr-primary-100);
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.logo {
+  width: 11.5rem;
+  height: 3.2rem;
+}
