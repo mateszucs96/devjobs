@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './header.module.scss';
 import logo from '../assets/desktop/logo.svg';
 import sun from '../assets/desktop/icon-sun.svg'
 import moon from '../assets/desktop/icon-moon.svg'
-import search from '../assets/desktop/icon-search.svg'
-import filter from '../assets/mobile/icon-filter.svg';
 import Cards from './Cards';
+import FilterBox from './FilterBox';
+import { useGetData } from '../hooks/useGetData';
 
 const Header = () => {
+    const { data, setData, reset } = useGetData();
+    const [data1, setData1] = useState([]);
+
+    const handleSearchFilter = (e) => {
+        e.preventDefault();
+        console.log(e)
+        console.log(e.target[0].value)
+        reset()
+        data.forEach(el => console.log(el.position.split(' ')))
+        const filtered = data.filter(company => (
+            company.position.split(' ').includes(e.target[0].value)
+        ))
+        setData1(filtered)
+        console.log(data1)
+    }
+
 
     return (
         <div className={styles.headerContainer}>
@@ -21,28 +37,11 @@ const Header = () => {
                         </div>
                         <img src={moon} alt='logo' className='moon' />
                     </div>
-
-
                 </div >
-
             </header >
-            <div className={styles.filterBox}>
-                <form className={styles.filter}>
-                    <input type='text' placeholder='Filter by title...' />
-
-                    <div className={styles.buttonContainer}>
-                        <button className={styles.filterButton} >
-                            <img src={filter} alt='filter' />
-                        </button>
-                        <button className={styles.searchButton}>
-                            <img src={search} alt='filter' />
-                        </button>
-                    </div>
-
-                </form>
-            </div>
-            <Cards />
-        </div>
+            <FilterBox data={data1} handleSearchFilter={handleSearchFilter} />
+            <Cards data={data1} />
+        </div >
 
     )
 }

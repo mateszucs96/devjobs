@@ -12,5 +12,5 @@ export const useGetData = () => {
             .then(setData)
     }, [])
     console.log(data)
-    return { data, reset };
+    return { data, setData, reset };
 }
