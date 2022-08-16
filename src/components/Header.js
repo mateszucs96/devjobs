@@ -3,8 +3,10 @@ import styles from './header.module.scss';
 import logo from '../assets/desktop/logo.svg';
 import sun from '../assets/desktop/icon-sun.svg'
 import moon from '../assets/desktop/icon-moon.svg'
+import Cards from './Cards';
 
 const Header = () => {
+
     return (
         <div className={styles.headerContainer}>
             <header className={styles.header}>
@@ -25,7 +27,9 @@ const Header = () => {
             <div className={styles.filterBox}>
                 <input type='text' placeholder='Filter by title...' />
             </div>
+            <Cards />
         </div>
+
     )
 }
 
