@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './header.module.scss';
 import logo from '../assets/desktop/logo.svg';
 import sun from '../assets/desktop/icon-sun.svg'
@@ -8,20 +8,14 @@ import FilterBox from './FilterBox';
 import { useGetData } from '../hooks/useGetData';
 
 const Header = () => {
-    const { data, setData, reset } = useGetData();
-    const [data1, setData1] = useState([]);
+    const { data, setData } = useGetData();
 
     const handleSearchFilter = (e) => {
         e.preventDefault();
-        console.log(e)
-        console.log(e.target[0].value)
-        reset()
-        data.forEach(el => console.log(el.position.split(' ')))
         const filtered = data.filter(company => (
             company.position.split(' ').includes(e.target[0].value)
         ))
-        setData1(filtered)
-        console.log(data1)
+        setData(filtered)
     }
 
 
@@ -39,8 +33,8 @@ const Header = () => {
                     </div>
                 </div >
             </header >
-            <FilterBox data={data1} handleSearchFilter={handleSearchFilter} />
-            <Cards data={data1} />
+            <FilterBox handleSearchFilter={handleSearchFilter} />
+            <Cards data={data} />
         </div >
 
     )

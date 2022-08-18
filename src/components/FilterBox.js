@@ -6,7 +6,7 @@ import filter from '../assets/mobile/icon-filter.svg';
 
 
 
-const FilterBox = ({ data, handleSearchFilter }) => {
+const FilterBox = ({ handleSearchFilter }) => {
 
     return (
         <div className={styles.filterBox}>
