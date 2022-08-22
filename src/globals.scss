@@ -77,3 +77,16 @@ h4 {
   }
 
 }
+
+.modal {
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 3;
+  background-color: var(--clr-secondary-100);
+  border-radius: 6px;
+  margin: 0 2.4rem;
+  padding: 0 2.4rem;
+}

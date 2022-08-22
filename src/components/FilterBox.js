@@ -6,7 +6,7 @@ import filter from '../assets/mobile/icon-filter.svg';
 
 
 
-const FilterBox = ({ handleSearchFilter }) => {
+const FilterBox = ({ handleSearchFilter, toggleModal }) => {
 
     return (
         <div className={styles.filterBox}>
@@ -14,16 +14,16 @@ const FilterBox = ({ handleSearchFilter }) => {
                 <input type='text' placeholder='Filter by title...' />
 
                 <div className={styles.buttonContainer}>
-                    <button className={styles.filterButton} >
+                    <div className={styles.filterButton} onClick={toggleModal}>
                         <img src={filter} alt='filter' />
-                    </button>
+                    </div>
                     <button className={styles.searchButton}>
                         <img src={search} alt='filter' />
                     </button>
                 </div>
-
             </form>
         </div>
+
     )
 }
 
