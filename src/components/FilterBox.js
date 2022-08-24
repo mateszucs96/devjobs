@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './header.module.scss';
+import styles from './filterBox.module.scss';
 import search from '../assets/desktop/icon-search.svg'
 import filter from '../assets/mobile/icon-filter.svg';
 
@@ -23,7 +23,6 @@ const FilterBox = ({ handleSearchFilter, toggleModal }) => {
                 </div>
             </form>
         </div>
-
     )
 }
 

@@ -4,11 +4,17 @@ import styles from './card.module.scss'
 const Card = ({ data }) => {
     return (
         <div className={styles.card}>
-            <p>{data.postedAt}</p>
-            <p>{data.contract}</p>
-            <h2>{data.position}</h2>
-            <p>{data.company}</p>
-            <p>{data.location}</p>
+            <div className={styles.logoContainer} style={{ backgroundColor: data.logoBackground }}>
+                <img className={styles.logo} src={data.logo} alt='logo' />
+            </div>
+            <div className={styles.times}>
+                <p>{data.postedAt}</p>
+                <div className='dot'></div>
+                <p>{data.contract}</p>
+            </div>
+            <h3 className={styles.title}>{data.position}</h3>
+            <p className={styles.companyName}>{data.company}</p>
+            <p className={styles.location}>{data.location}</p>
         </div>
     )
 }

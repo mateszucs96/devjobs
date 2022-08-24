@@ -25,12 +25,27 @@ function App() {
     setData(filtered)
   }
 
+  const handleLocationSearch = (e) => {
+    e.preventDefault();
+    if (e.target[1].checked === true) {
+      const filteredByLocation = data.filter((
+        el => e.target[0].value === el.location && el.contract === 'Full Time'
+      ))
+      setData(filteredByLocation)
+      setModal(false)
+    } else {
+      const filteredByLocation = data.filter(el => e.target[0].value === el.location)
+      setData(filteredByLocation)
+      setModal(false)
+    }
+  }
+
 
   return (
     <div className="App">
       <Header />
       <FilterBox handleSearchFilter={handleSearchFilter} toggleModal={toggleModal} />
-      {modal && <Modal />}
+      {modal && <Modal data={data} handleLocationSearch={handleLocationSearch} />}
       <Cards data={data} />
     </div>
   );
