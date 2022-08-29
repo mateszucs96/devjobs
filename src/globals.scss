@@ -1,14 +1,13 @@
 :root {
-  --clr-primary-100: #5964E0;
-  --clr-primary-300: #939BF4;
-  --clr-primary-500: #19202D;
+  --clr-primary-100: #5964e0;
+  --clr-primary-300: #939bf4;
+  --clr-primary-500: #19202d;
   --clr-primary-700: #121721;
 
-  --clr-secondary-100: #FFFFFF;
-  --clr-secondary-300: #F4F6F8;
-  --clr-secondary-500: #9DAEC2;
-  --clr-secondary-700: #6E8098;
-
+  --clr-secondary-100: #ffffff;
+  --clr-secondary-300: #f4f6f8;
+  --clr-secondary-500: #9daec2;
+  --clr-secondary-700: #6e8098;
 }
 
 *,
@@ -29,7 +28,6 @@ body {
   font-size: 1.6rem;
   line-height: 2.6rem;
   background-color: var(--clr-secondary-300);
-
 }
 
 h1 {
@@ -40,7 +38,6 @@ h1 {
 h2 {
   font-size: 2.4rem;
   line-height: 2.9rem;
-
 }
 
 h3 {
@@ -90,7 +87,17 @@ h4 {
   @media screen and (min-width: 990px) {
     gap: 3rem;
   }
+}
 
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  background-color: var(--clr-secondary-300);
+  opacity: 0.7;
 }
 
 .modal {
@@ -99,7 +106,7 @@ h4 {
   left: 0;
   right: 0;
   margin: 0 auto;
-  z-index: 3;
+  z-index: 100;
   // background-color: var(--clr-secondary-100);
   background-color: azure;
   border-radius: 6px;
@@ -108,10 +115,11 @@ h4 {
   form {
     width: 100%;
 
-    button {}
+    button {
+    }
   }
 
-  form>*:not(.line) {
+  form > *:not(.line) {
     margin: 0 2.4rem;
   }
 }

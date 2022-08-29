@@ -41,6 +41,10 @@ function App() {
     }
   };
 
+  const handleCloseModal = () => {
+    setModal(false);
+  };
+
   return (
     <div className="App">
       <Header />
@@ -49,7 +53,11 @@ function App() {
         toggleModal={toggleModal}
       />
       {modal && (
-        <Modal data={data} handleLocationSearch={handleLocationSearch} />
+        <Modal
+          data={data}
+          handleLocationSearch={handleLocationSearch}
+          handleCloseModal={handleCloseModal}
+        />
       )}
       <Cards data={data} />
     </div>
