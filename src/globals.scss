@@ -51,6 +51,12 @@ h4 {
   line-height: 1.8rem;
 }
 
+a {
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
 .circle {
   border-radius: 100px;
   background-color: var(--clr-primary-100);
@@ -87,6 +93,16 @@ h4 {
   @media screen and (min-width: 990px) {
     gap: 3rem;
   }
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 15px;
+  margin-top: -5.5rem;
 }
 
 .backdrop {

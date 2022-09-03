@@ -1,40 +1,29 @@
 .card {
+  display: flex;
+  flex-direction: column;
+  color: var(--clr-secondary-700);
+  background-color: var(--clr-secondary-100);
+  width: 100%;
+  max-width: 35rem;
+  padding: 3rem;
+  margin-bottom: 3rem;
+  border-radius: 6px;
+
+  .times {
     display: flex;
-    flex-direction: column;
-    color: var(--clr-secondary-700);
-    background-color: var(--clr-secondary-100);
-    width: 100%;
-    max-width: 35rem;
-    padding: 3rem;
-    margin-bottom: 3rem;
-    border-radius: 6px;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 2.4rem;
+  }
 
-    .logoContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 5rem;
-        height: 5rem;
-        border-radius: 15px;
-        margin-top: -5.5rem;
+  .title {
+    margin: 1.6rem 0;
+  }
 
-    }
-
-    .times {
-        display: flex;
-        align-items: center;
-        gap: 1.2rem;
-        margin-top: 2.4rem;
-    }
-
-    .title {
-        margin: 1.6rem 0;
-    }
-
-    .location {
-        color: var(--clr-primary-100);
-        font-size: 1.4rem;
-        font-weight: 700;
-        margin-top: 4.4rem;
-    }
+  .location {
+    color: var(--clr-primary-100);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 4.4rem;
+  }
 }

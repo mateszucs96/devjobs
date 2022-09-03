@@ -1,13 +1,13 @@
 import styles from './card.module.scss';
 
-const Card = ({ data }) => {
+const Card = ({ data, handleDetailsPage }) => {
   return (
-    <div className={styles.card}>
+    <div className={'cardC ' + styles.card} onClick={handleDetailsPage}>
       <div
-        className={styles.logoContainer}
+        className="logoContainer"
         style={{ backgroundColor: data.logoBackground }}
       >
-        <img className={styles.logo} src={data.logo} alt="logo" />
+        <img src={data.logo} alt="logo" />
       </div>
       <div className={styles.times}>
         <p>{data.postedAt}</p>

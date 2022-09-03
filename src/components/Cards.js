@@ -1,12 +1,18 @@
 import Card from './Card';
 
-const Cards = ({ data }) => {
+const Cards = ({ data, handleDetailsPage }) => {
   return (
-    <div className="cards">
+    <main className="cards">
       {data.map((company) => {
-        return <Card key={company.id} data={company} />;
+        return (
+          <Card
+            key={company.id}
+            data={company}
+            handleDetailsPage={handleDetailsPage}
+          />
+        );
       })}
-    </div>
+    </main>
   );
 };
 

@@ -5,8 +5,8 @@ import moon from '../assets/desktop/icon-moon.svg';
 
 const Header = () => {
   return (
-    <div className={styles.headerContainer}>
-      <header className={styles.header}>
+    <header className={styles.headerContainer}>
+      <div className={styles.header}>
         <div className={styles.container}>
           <img src={logo} alt="logo" className="logo" />
           <div className={styles.toggleBox}>
@@ -17,8 +17,8 @@ const Header = () => {
             <img src={moon} alt="logo" className="moon" />
           </div>
         </div>
-      </header>
-    </div>
+      </div>
+    </header>
   );
 };
 

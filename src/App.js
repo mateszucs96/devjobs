@@ -5,16 +5,18 @@ import { useState } from 'react';
 import FilterBox from './components/FilterBox';
 import Cards from './components/Cards';
 import { useGetData } from './hooks/useGetData';
+import Details from 'components/Details';
 
 function App() {
   const [modal, setModal] = useState(false);
+  const [details, setDetails] = useState(false);
+  const [detailsData, setDetailsData] = useState([]);
+  const { data, setData } = useGetData();
 
   const toggleModal = () => {
     setModal(!modal);
     console.log(modal);
   };
-
-  const { data, setData } = useGetData();
 
   const handleSearchFilter = (e) => {
     e.preventDefault();
@@ -45,13 +47,23 @@ function App() {
     setModal(false);
   };
 
+  const handleDetailsPage = (e) => {
+    const position = e.target.closest('.cardC').children[2].textContent.trim();
+    const target = data.filter((element) => element.position === position);
+    setDetailsData(target);
+    setDetails(!details);
+  };
+
   return (
     <div className="App">
       <Header />
       <FilterBox
+        details={details}
+        data={detailsData}
         handleSearchFilter={handleSearchFilter}
         toggleModal={toggleModal}
       />
+
       {modal && (
         <Modal
           data={data}
@@ -59,7 +71,11 @@ function App() {
           handleCloseModal={handleCloseModal}
         />
       )}
-      <Cards data={data} />
+      {details ? (
+        <Details data={detailsData} />
+      ) : (
+        <Cards data={data} handleDetailsPage={handleDetailsPage} />
+      )}
     </div>
   );
 }
