@@ -9,12 +9,14 @@ const DetailsHeader = ({ data }) => {
       >
         <img src={data[0].logo} alt="logo" />
       </div>
-      <div className={styles.headerInfo}>
-        <h3 className={styles.companyName}>{data[0].company}</h3>
-        <p>{`${data[0].company.toLowerCase()}.com   `}</p>
-      </div>
-      <div className={styles.linkButton}>
-        <a href={data[0].website}>Company Site</a>
+      <div className={styles.header}>
+        <div className={styles.headerInfo}>
+          <h3 className={styles.companyName}>{data[0].company}</h3>
+          <p>{`${data[0].company.toLowerCase()}.com   `}</p>
+        </div>
+        <div className={styles.linkButton}>
+          <a href={data[0].website}>Company Site</a>
+        </div>
       </div>
     </div>
   );
