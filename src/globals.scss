@@ -130,12 +130,27 @@ a {
 
   form {
     width: 100%;
-
-    button {
-    }
   }
 
   form > *:not(.line) {
     margin: 0 2.4rem;
   }
+}
+
+.times {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 2.4rem;
+}
+
+.title {
+  margin: 1.6rem 0;
+}
+
+.location {
+  color: var(--clr-primary-100);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 4.4rem;
 }
