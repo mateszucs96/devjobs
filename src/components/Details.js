@@ -9,8 +9,8 @@ const Details = ({ data }) => {
         <div className="dot"></div>
         <p>{data[0].contract}</p>
       </div>
-      <h3 className="title">{data[0].position}</h3>
-      <p className="location">{data[0].location}</p>
+      <h3 className={'title ' + styles.title}>{data[0].position}</h3>
+      <p className={'location ' + styles.location}>{data[0].location}</p>
 
       <div className={styles.description}>
         <p>{data[0].description}</p>
