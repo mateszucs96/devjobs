@@ -8,8 +8,15 @@
   --clr-secondary-300: #f4f6f8;
   --clr-secondary-500: #9daec2;
   --clr-secondary-700: #6e8098;
+  --clr-background: red;
 }
 
+[data-theme='dark'] {
+  --clr-secondary-100: #19202d;
+  --clr-secondary-300: #121721;
+  --clr-primary-500: #ffffff;
+  --clr-secondary-700: #9daec2;
+}
 *,
 *::before,
 *::after {
@@ -27,7 +34,6 @@ body {
   font-family: 'Kumbh Sans', sans-serif;
   font-size: 1.6rem;
   line-height: 2.6rem;
-  background-color: var(--clr-secondary-300);
 }
 
 h1 {
@@ -55,6 +61,10 @@ a {
   text-decoration: none;
   font-size: 1.6rem;
   font-weight: 700;
+}
+
+.App {
+  background-color: var(--clr-secondary-300);
 }
 
 .circle {

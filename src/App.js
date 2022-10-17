@@ -12,10 +12,20 @@ function App() {
   const [details, setDetails] = useState(false);
   const [detailsData, setDetailsData] = useState([]);
   const { data, setData } = useGetData();
+  const [theme, setTheme] = useState('light');
 
   const toggleModal = () => {
     setModal(!modal);
     console.log(modal);
+  };
+
+  const toggleTheme = (e) => {
+    const toggleBox = e.target.closest('.toggle');
+    setTheme((curr) => (curr === 'light' ? 'dark' : 'light'));
+    console.log(theme);
+    toggleBox.style.justifyContent === 'flex-end'
+      ? (toggleBox.style.justifyContent = 'flex-start')
+      : (toggleBox.style.justifyContent = 'flex-end');
   };
 
   const handleSearchFilter = (e) => {
@@ -55,8 +65,8 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Header />
+    <div className="App" data-theme={theme}>
+      <Header setTheme={toggleTheme} />
       <FilterBox
         details={details}
         data={detailsData}

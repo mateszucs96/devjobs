@@ -17,7 +17,11 @@ const FilterBox = ({ handleSearchFilter, toggleModal, details, data }) => {
               <img src={filter} alt="filter" />
             </div>
             <button className={styles.searchButton}>
-              <img src={search} alt="filter" />
+              <img
+                className={styles.magnifyingGlass}
+                src={search}
+                alt="filter"
+              />
             </button>
           </div>
         </form>

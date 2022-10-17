@@ -8,15 +8,16 @@
     justify-content: space-between;
     align-items: center;
     height: 8rem;
-
+    border-radius: 6px;
     padding: 0 3rem 0 2.4rem;
     margin-bottom: 8rem;
-    background-color: #ffffff;
+    background-color: var(--clr-secondary-100);
   }
 
   input {
     border: none;
     outline: none;
+    background-color: var(--clr-secondary-100);
   }
 
   input::placeholder {
@@ -42,7 +43,7 @@
       border-radius: 5px;
       outline: none;
       border: none;
-      background-color: red;
+      background-color: var(--clr-primary-100);
     }
   }
 }
