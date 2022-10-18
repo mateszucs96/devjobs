@@ -13,7 +13,7 @@ const Details = ({ data }) => {
         <h3 className={'title ' + styles.title}>{data[0].position}</h3>
         <p className={'location ' + styles.location}>{data[0].location}</p>
 
-        <div className={styles.applyButton}>
+        <div className="applyButton">
           <a href={data[0].website}>Apply now</a>
         </div>
 
@@ -42,7 +42,7 @@ const Details = ({ data }) => {
         </div>
       </section>
       <footer className={styles.footer}>
-        <div className={styles.applyButton}>
+        <div className="applyButton">
           <a href={data[0].website}>Apply now</a>
         </div>
       </footer>

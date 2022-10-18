@@ -38,6 +38,7 @@ function App() {
 
   const handleLocationSearch = (e) => {
     e.preventDefault();
+    console.log(e.target[1].checked);
     if (e.target[1].checked === true) {
       const filteredByLocation = data.filter(
         (el) => e.target[0].value === el.location && el.contract === 'Full Time'

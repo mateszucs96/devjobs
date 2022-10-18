@@ -1,6 +1,6 @@
 import styles from './filterBox.module.scss';
 import search from '../assets/desktop/icon-search.svg';
-import filter from '../assets/mobile/icon-filter.svg';
+import filter from '../assets/sprite.svg';
 import DetailsHeader from './DetailsHeader';
 
 const FilterBox = ({ handleSearchFilter, toggleModal, details, data }) => {
@@ -14,7 +14,9 @@ const FilterBox = ({ handleSearchFilter, toggleModal, details, data }) => {
 
           <div className={styles.buttonContainer}>
             <div className={styles.filterButton} onClick={toggleModal}>
-              <img src={filter} alt="filter" />
+              <svg className={styles.iconFilter}>
+                <use xlinkHref={`${filter}#icon-filter`}></use>
+              </svg>
             </div>
             <button className={styles.searchButton}>
               <img

@@ -35,6 +35,11 @@
       outline: none;
       border: none;
       background: none;
+      .iconFilter {
+        height: 2rem;
+        width: 2rem;
+        fill: var(--clr-secondary-700);
+      }
     }
 
     .searchButton {

@@ -8,7 +8,6 @@
   --clr-secondary-300: #f4f6f8;
   --clr-secondary-500: #9daec2;
   --clr-secondary-700: #6e8098;
-  --clr-background: red;
 }
 
 [data-theme='dark'] {
@@ -127,19 +126,71 @@ a {
 }
 
 .modal {
-  display: flex;
   position: absolute;
   left: 0;
   right: 0;
-  margin: 0 auto;
   z-index: 100;
-  // background-color: var(--clr-secondary-100);
-  background-color: azure;
+  background-color: var(--clr-secondary-100);
   border-radius: 6px;
   margin: 0 2.4rem;
+  padding: 2.4rem 0;
 
   form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
     width: 100%;
+
+    .location-filter {
+      display: flex;
+      gap: 1.6rem;
+      input {
+        border: none;
+        outline: none;
+        background-color: var(--clr-secondary-100);
+      }
+
+      input::placeholder {
+        font-size: 1.6rem;
+        color: var(--clr-primary-500);
+        opacity: 0.5;
+      }
+    }
+
+    .checkbox {
+      display: flex;
+      gap: 1.6rem;
+      cursor: pointer;
+      &__input {
+        display: none;
+      }
+      &__box {
+        width: 2.4rem;
+        height: 2.4rem;
+        background-color: #19202d17;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      &__box::after {
+        content: '\2713';
+        color: #19202d00;
+      }
+
+      .checkbox__input:not(:checked) + .checkbox__box:hover {
+        background-color: #5964e0;
+        opacity: 0.25;
+      }
+
+      .checkbox__input:checked + .checkbox__box {
+        background-color: #5964e0;
+      }
+      .checkbox__input:checked + .checkbox__box::after {
+        color: #ffffff;
+      }
+    }
   }
 
   form > *:not(.line) {
@@ -163,4 +214,19 @@ a {
   font-size: 1.4rem;
   font-weight: 700;
   margin-top: 4.4rem;
+}
+
+.applyButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-primary-100);
+  border-radius: 5px;
+  text-align: center;
+  height: 4.8rem;
+
+  a {
+    color: #ffffff;
+    width: 100%;
+  }
 }
