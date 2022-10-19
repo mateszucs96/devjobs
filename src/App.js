@@ -87,6 +87,7 @@ function App() {
       ) : (
         <Cards data={data} handleDetailsPage={handleDetailsPage} />
       )}
+      <button>Load more</button>
     </div>
   );
 }

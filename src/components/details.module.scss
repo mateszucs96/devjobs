@@ -1,9 +1,27 @@
+@import '../variable';
+
 .detailsSection {
   color: var(--clr-secondary-700);
   background-color: var(--clr-secondary-100);
-  margin: 2rem;
   padding: 2.4rem;
   border-radius: 6px;
+  width: 87%;
+  max-width: 73rem;
+  margin: 2rem auto 2rem auto;
+
+  @media only screen and (min-width: $md) {
+    margin: 3.2rem auto 8rem auto;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    @media only screen and (min-width: $md) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
 
   .title {
     color: var(--clr-primary-500);
@@ -30,6 +48,10 @@
     list-style: none;
     padding: 3rem;
     margin-bottom: 4rem;
+
+    li {
+      margin-bottom: 0.8rem;
+    }
 
     li::before {
       content: '•';
@@ -74,6 +96,30 @@
 .footer {
   color: var(--clr-secondary-700);
   background-color: var(--clr-secondary-100);
-  padding: 2.4rem;
-  border-radius: 6px;
+  padding: 2.4rem 0;
+  @media only screen and (min-width: $md) {
+    padding: 0;
+  }
+  .footerContainer {
+    width: 87%;
+    margin: 0 auto;
+    max-width: 73rem;
+    @media only screen and (min-width: $md) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footerInfo {
+      display: none;
+      margin: 2.3rem 0;
+      @media only screen and (min-width: $md) {
+        display: block;
+      }
+
+      h3 {
+        margin: 0;
+        margin-bottom: 1.3rem;
+      }
+    }
+  }
 }

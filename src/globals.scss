@@ -1,4 +1,6 @@
+@import './variable';
 :root {
+  $md: 700px;
   --clr-primary-100: #5964e0;
   --clr-primary-300: #939bf4;
   --clr-primary-500: #19202d;
@@ -8,8 +10,15 @@
   --clr-secondary-300: #f4f6f8;
   --clr-secondary-500: #9daec2;
   --clr-secondary-700: #6e8098;
-}
 
+  --screennn: 375px;
+  @media only screen and (min-width: 761px) {
+    --screennn: 760px;
+  }
+  @media only screen and (min-width: 1200px) {
+    --screennn: 1200px;
+  }
+}
 [data-theme='dark'] {
   --clr-secondary-100: #19202d;
   --clr-secondary-300: #121721;
@@ -224,6 +233,10 @@ a {
   border-radius: 5px;
   text-align: center;
   height: 4.8rem;
+
+  @media only screen and (min-width: $md) {
+    width: 14rem;
+  }
 
   a {
     color: #ffffff;

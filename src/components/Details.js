@@ -5,16 +5,20 @@ const Details = ({ data }) => {
   return (
     <>
       <section className={styles.detailsSection}>
-        <div className="times">
-          <p>{data[0].postedAt}</p>
-          <div className="dot"></div>
-          <p>{data[0].contract}</p>
-        </div>
-        <h3 className={'title ' + styles.title}>{data[0].position}</h3>
-        <p className={'location ' + styles.location}>{data[0].location}</p>
+        <div className={styles.header}>
+          <div className={styles.headerInfo}>
+            <div className="times">
+              <p>{data[0].postedAt}</p>
+              <div className="dot"></div>
+              <p>{data[0].contract}</p>
+            </div>
+            <h3 className={'title ' + styles.title}>{data[0].position}</h3>
+            <p className={'location ' + styles.location}>{data[0].location}</p>
+          </div>
 
-        <div className="applyButton">
-          <a href={data[0].website}>Apply now</a>
+          <div className="applyButton">
+            <a href={data[0].website}>Apply now</a>
+          </div>
         </div>
 
         <div className={styles.description}>
@@ -42,8 +46,14 @@ const Details = ({ data }) => {
         </div>
       </section>
       <footer className={styles.footer}>
-        <div className="applyButton">
-          <a href={data[0].website}>Apply now</a>
+        <div className={styles.footerContainer}>
+          <div className={styles.footerInfo}>
+            <h3 className={'title ' + styles.title}>{data[0].position}</h3>
+            <p>So Digital Inc.</p>
+          </div>
+          <div className="applyButton">
+            <a href={data[0].website}>Apply now</a>
+          </div>
         </div>
       </footer>
     </>
