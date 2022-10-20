@@ -102,13 +102,13 @@ a {
 
 .cards {
   display: flex;
-  max-width: 95%;
+  max-width: 1110px;
   margin: 0 auto;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.1rem;
 
-  @media screen and (min-width: 990px) {
+  @media screen and (min-width: $lg) {
     gap: 3rem;
   }
 }
@@ -165,41 +165,6 @@ a {
         opacity: 0.5;
       }
     }
-
-    .checkbox {
-      display: flex;
-      gap: 1.6rem;
-      cursor: pointer;
-      &__input {
-        display: none;
-      }
-      &__box {
-        width: 2.4rem;
-        height: 2.4rem;
-        background-color: #19202d17;
-        border-radius: 3px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-      }
-      &__box::after {
-        content: '\2713';
-        color: #19202d00;
-      }
-
-      .checkbox__input:not(:checked) + .checkbox__box:hover {
-        background-color: #5964e0;
-        opacity: 0.25;
-      }
-
-      .checkbox__input:checked + .checkbox__box {
-        background-color: #5964e0;
-      }
-      .checkbox__input:checked + .checkbox__box::after {
-        color: #ffffff;
-      }
-    }
   }
 
   form > *:not(.line) {
@@ -241,5 +206,40 @@ a {
   a {
     color: #ffffff;
     width: 100%;
+  }
+}
+
+.checkbox {
+  display: flex;
+  gap: 1.6rem;
+  cursor: pointer;
+  &__input {
+    display: none;
+  }
+  &__box {
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: #19202d17;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  &__box::after {
+    content: '\2713';
+    color: #19202d00;
+  }
+
+  .checkbox__input:not(:checked) + .checkbox__box:hover {
+    background-color: #5964e0;
+    opacity: 0.25;
+  }
+
+  .checkbox__input:checked + .checkbox__box {
+    background-color: #5964e0;
+  }
+  .checkbox__input:checked + .checkbox__box::after {
+    color: #ffffff;
   }
 }

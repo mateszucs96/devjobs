@@ -1,8 +1,8 @@
 import './App.css';
-import Header from './components/Header';
+import HeaderBackground from './components/HeaderBackground';
 import Modal from './components/Modal';
 import { useState } from 'react';
-import FilterBox from './components/FilterBox';
+import Header from './components/Header';
 import Cards from './components/Cards';
 import { useGetData } from './hooks/useGetData';
 import Details from 'components/Details';
@@ -67,10 +67,12 @@ function App() {
 
   return (
     <div className="App" data-theme={theme}>
-      <Header setTheme={toggleTheme} />
-      <FilterBox
+      <HeaderBackground setTheme={toggleTheme} />
+
+      <Header
         details={details}
         data={detailsData}
+        handleLocationSearch={handleLocationSearch}
         handleSearchFilter={handleSearchFilter}
         toggleModal={toggleModal}
       />
@@ -82,6 +84,7 @@ function App() {
           handleCloseModal={handleCloseModal}
         />
       )}
+
       {details ? (
         <Details data={detailsData} />
       ) : (

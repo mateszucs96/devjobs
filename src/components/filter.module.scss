@@ -1,3 +1,5 @@
+@import '../variable';
+
 .filterBox {
   border-radius: 15px;
   width: 87%;
@@ -13,6 +15,26 @@
     padding: 0 3rem 0 2.4rem;
     margin-bottom: 8rem;
     background-color: var(--clr-secondary-100);
+
+    .titleFilter {
+      .iconSearch {
+        display: none;
+        width: 2.4rem;
+        height: 2.4rem;
+        fill: var(--clr-primary-100);
+        @media only screen and (min-width: $md) {
+          display: inline-block;
+        }
+      }
+    }
+
+    .locationSearch {
+      display: none;
+      @media only screen and (min-width: $md) {
+        display: flex;
+        gap: 1.6rem;
+      }
+    }
   }
 
   input {
@@ -32,6 +54,10 @@
     gap: 2.4rem;
     align-items: center;
 
+    @media only screen and (min-width: $md) {
+      display: none;
+    }
+
     .filterButton {
       outline: none;
       border: none;
@@ -50,6 +76,22 @@
       outline: none;
       border: none;
       background-color: var(--clr-primary-100);
+      @media only screen and (min-width: $md) {
+        display: none;
+      }
     }
+  }
+}
+.mediaSearchButton {
+  display: none;
+  @media only screen and (min-width: $md) {
+    display: inline-block;
+  }
+}
+
+.checkbox {
+  display: none;
+  @media only screen and (min-width: $md) {
+    display: flex;
   }
 }
