@@ -17,15 +17,15 @@ const Modal = ({ handleLocationSearch, handleCloseModal }) => {
           </div>
           <div className="line"></div>
           <div className="checkbox-container">
-            <label className="checkbox" htmlFor="checkbox">
+            <label className="checkbox" htmlFor="checkbox-modal">
               <input
                 onClick={showChecked}
                 className="checkbox__input"
                 type="checkbox"
-                id="checkbox"
+                id="checkbox-modal"
               ></input>
               <div className="checkbox__box"></div>
-              Full Time Only
+              Full Time
             </label>
           </div>
           <button className="applyButton">Search</button>

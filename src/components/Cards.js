@@ -1,8 +1,9 @@
 import Card from './Card';
+import styles from './cards.module.scss';
 
 const Cards = ({ data, handleDetailsPage }) => {
   return (
-    <main className="cards">
+    <main className={styles.cards}>
       {data.map((company) => {
         return (
           <Card

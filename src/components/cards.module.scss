@@ -1,0 +1,15 @@
+@import '../variable';
+
+.cards {
+  display: flex;
+  max-width: 1110px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  // align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+
+  @media screen and (min-width: $lg) {
+    gap: 3rem;
+  }
+}

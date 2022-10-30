@@ -1,22 +1,37 @@
 @import '../variable';
 
 .filterBox {
+  display: flex;
+  justify-content: center;
   border-radius: 15px;
-  width: 87%;
+  width: min(1100px, 92%);
   margin: 0 auto;
   margin-top: -4rem;
 
-  form {
+  .filter {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 8rem;
+    max-width: 1100px;
+    margin: 0 auto;
     border-radius: 6px;
     padding: 0 3rem 0 2.4rem;
+    width: 100%;
     margin-bottom: 8rem;
     background-color: var(--clr-secondary-100);
 
-    .titleFilter {
+    &__title {
+      display: flex;
+      gap: 1.6rem;
+      align-self: stretch;
+      align-items: center;
+
+      @media only screen and (min-width: $md) {
+        flex: 0 1 50%;
+        border-right: 1px solid #6e80982e;
+      }
+
       .iconSearch {
         display: none;
         width: 2.4rem;
@@ -28,70 +43,71 @@
       }
     }
 
-    .locationSearch {
+    &__location {
       display: none;
       @media only screen and (min-width: $md) {
         display: flex;
         gap: 1.6rem;
+        align-self: stretch;
+        align-items: center;
+        border-right: 1px solid #6e80982e;
+        flex: 1 0 25%;
+      }
+    }
+
+    &__search {
+      display: flex;
+      gap: 2.8rem;
+
+      @media only screen and (min-width: $md) {
+        flex: 1 0 25%;
+      }
+
+      .checkbox {
+        display: none;
+        @media only screen and (min-width: $md) {
+          display: flex;
+        }
       }
     }
   }
+  .mediaSearchButton {
+    display: none;
+    @media only screen and (min-width: $md) {
+      display: inline-block;
+    }
+  }
+}
 
-  input {
-    border: none;
+.buttonContainer {
+  display: flex;
+  gap: 2.4rem;
+  align-items: center;
+
+  @media only screen and (min-width: $md) {
+    display: none;
+  }
+
+  .filterButton {
     outline: none;
-    background-color: var(--clr-secondary-100);
+    border: none;
+    background: none;
+    .iconFilter {
+      height: 2rem;
+      width: 2rem;
+      fill: var(--clr-secondary-700);
+    }
   }
 
-  input::placeholder {
-    font-size: 1.6rem;
-    color: var(--clr-primary-500);
-    opacity: 0.5;
-  }
-
-  .buttonContainer {
-    display: flex;
-    gap: 2.4rem;
-    align-items: center;
-
+  .searchButton {
+    height: 4.8rem;
+    width: 4.8rem;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: var(--clr-primary-100);
     @media only screen and (min-width: $md) {
       display: none;
     }
-
-    .filterButton {
-      outline: none;
-      border: none;
-      background: none;
-      .iconFilter {
-        height: 2rem;
-        width: 2rem;
-        fill: var(--clr-secondary-700);
-      }
-    }
-
-    .searchButton {
-      height: 4.8rem;
-      width: 4.8rem;
-      border-radius: 5px;
-      outline: none;
-      border: none;
-      background-color: var(--clr-primary-100);
-      @media only screen and (min-width: $md) {
-        display: none;
-      }
-    }
-  }
-}
-.mediaSearchButton {
-  display: none;
-  @media only screen and (min-width: $md) {
-    display: inline-block;
-  }
-}
-
-.checkbox {
-  display: none;
-  @media only screen and (min-width: $md) {
-    display: flex;
   }
 }

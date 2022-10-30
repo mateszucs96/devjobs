@@ -10,14 +10,6 @@
   --clr-secondary-300: #f4f6f8;
   --clr-secondary-500: #9daec2;
   --clr-secondary-700: #6e8098;
-
-  --screennn: 375px;
-  @media only screen and (min-width: 761px) {
-    --screennn: 760px;
-  }
-  @media only screen and (min-width: 1200px) {
-    --screennn: 1200px;
-  }
 }
 [data-theme='dark'] {
   --clr-secondary-100: #19202d;
@@ -71,6 +63,18 @@ a {
   font-weight: 700;
 }
 
+input {
+  border: none;
+  outline: none;
+  background-color: var(--clr-secondary-100);
+}
+
+input::placeholder {
+  font-size: 1.6rem;
+  color: var(--clr-primary-500);
+  opacity: 0.5;
+}
+
 .App {
   background-color: var(--clr-secondary-300);
 }
@@ -98,19 +102,6 @@ a {
 .logo {
   width: 11.5rem;
   height: 3.2rem;
-}
-
-.cards {
-  display: flex;
-  max-width: 1110px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.1rem;
-
-  @media screen and (min-width: $lg) {
-    gap: 3rem;
-  }
 }
 
 .logoContainer {
