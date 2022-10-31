@@ -6,7 +6,9 @@ import location from '../assets/desktop/icon-location.svg';
 const FilterBox = ({
   handleSearchFilter,
   toggleModal,
-  handleLocationSearch,
+  // handleLocationSearch,
+  onChange,
+  onChangeCheckBox,
 }) => {
   const showChecked = (e) => {
     console.log(e.target.checked);
@@ -19,7 +21,6 @@ const FilterBox = ({
         id="form"
         onSubmit={(e) => {
           handleSearchFilter(e);
-          handleLocationSearch(e);
         }}
       >
         <div className={styles.filter__title}>
@@ -28,14 +29,20 @@ const FilterBox = ({
           </svg>
           <input
             className={styles.input}
-            onSubmit={handleLocationSearch}
             type="text"
+            name="title"
             placeholder="Filter by title..."
+            onChange={onChange}
           />
         </div>
         <div className={styles.filter__location}>
           <img src={location} />
-          <input type="text" placeholder="Filter by location..." />
+          <input
+            type="text"
+            name="location"
+            placeholder="Filter by location..."
+            onChange={onChange}
+          />
         </div>
         <div className={styles.filter__search}>
           <label className={`${styles.checkbox} checkbox`} htmlFor="checkbox">
@@ -44,6 +51,8 @@ const FilterBox = ({
               className="checkbox__input"
               type="checkbox"
               id="checkbox"
+              name="isFullTime"
+              onChange={onChangeCheckBox}
             ></input>
             <div className="checkbox__box"></div>
             Full Time

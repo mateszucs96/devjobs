@@ -7,6 +7,8 @@ const Header = ({
   details,
   data,
   handleLocationSearch,
+  onChange,
+  onChangeCheckBox,
 }) => {
   return details ? (
     <DetailsHeader data={data} />
@@ -15,6 +17,8 @@ const Header = ({
       handleLocationSearch={handleLocationSearch}
       handleSearchFilter={handleSearchFilter}
       toggleModal={toggleModal}
+      onChange={onChange}
+      onChangeCheckBox={onChangeCheckBox}
     />
   );
 };

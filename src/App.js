@@ -1,11 +1,12 @@
 import './App.css';
 import HeaderBackground from './components/HeaderBackground';
 import Modal from './components/Modal';
-import { useState } from 'react';
 import Header from './components/Header';
 import Cards from './components/Cards';
-import { useGetData } from './hooks/useGetData';
 import Details from 'components/Details';
+import { useState } from 'react';
+import { useGetData } from './hooks/useGetData';
+import { useGetInput } from 'hooks/useGetInput';
 
 function App() {
   const [modal, setModal] = useState(false);
@@ -13,10 +14,41 @@ function App() {
   const [detailsData, setDetailsData] = useState([]);
   const { data, setData } = useGetData();
   const [theme, setTheme] = useState('light');
+  const [values, onChange, onChangeCheckBox] = useGetInput();
 
   const toggleModal = () => {
     setModal(!modal);
     console.log(modal);
+  };
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+
+    let filterArray = [...data];
+
+    if (values.title) {
+      filterArray = filterArray.filter((company) =>
+        company.position.split(' ').includes(values.title)
+      );
+    }
+
+    if (values.location) {
+      filterArray = filterArray.filter(
+        (company) => values.location === company.location
+      );
+    }
+
+    if (values.isFullTime) {
+      filterArray = filterArray.filter(
+        (company) => company.contract === 'Full Time'
+      );
+    } else {
+      filterArray = filterArray.filter(
+        (company) => company.contract === 'Part Time'
+      );
+    }
+
+    setData(filterArray);
   };
 
   const toggleTheme = (e) => {
@@ -28,31 +60,46 @@ function App() {
       : (toggleBox.style.justifyContent = 'flex-end');
   };
 
-  const handleSearchFilter = (e) => {
-    e.preventDefault();
-    const filtered = data.filter((company) =>
-      company.position.split(' ').includes(e.target[0].value)
-    );
-    setData(filtered);
-  };
+  // const handleSearchFilter = (e) => {
+  //   e.preventDefault();
+  //   console.log(values.title);
+  //   const filtered = data.filter((company) =>
+  //     company.position.split(' ').includes(values.title)
+  //   );
+
+  //   setData(filtered);
+  //   handleLocationSearch(e);
+  //   handleIsFullTime(e);
+  //   console.log(data);
+  // };
 
   const handleLocationSearch = (e) => {
     e.preventDefault();
-    console.log(e.target[1].checked);
-    if (e.target[1].checked === true) {
+    console.log(values.location);
+    if (values.isFullTime === true) {
       const filteredByLocation = data.filter(
-        (el) => e.target[0].value === el.location && el.contract === 'Full Time'
+        (el) => values.location === el.location && el.contract === 'Full Time'
       );
       setData(filteredByLocation);
       setModal(false);
     } else {
       const filteredByLocation = data.filter(
-        (el) => e.target[0].value === el.location
+        (el) => values.location === el.location
       );
       setData(filteredByLocation);
       setModal(false);
     }
   };
+
+  // const handleIsFullTime = (e) => {
+  //   e.preventDefault();
+  //   if (values.isFullTime === true) {
+  //     const filteredByFullTime = data.filter(
+  //       (el) => el.contract === 'Full Time'
+  //     );
+  //     console.log(filteredByFullTime);
+  //   }
+  // };
 
   const handleCloseModal = () => {
     setModal(false);
@@ -73,8 +120,10 @@ function App() {
         details={details}
         data={detailsData}
         handleLocationSearch={handleLocationSearch}
-        handleSearchFilter={handleSearchFilter}
+        handleSearchFilter={handleOnSubmit}
         toggleModal={toggleModal}
+        onChange={onChange}
+        onChangeCheckBox={onChangeCheckBox}
       />
 
       {modal && (
