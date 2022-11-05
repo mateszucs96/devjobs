@@ -2,12 +2,13 @@
 
 .filterBox {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   border-radius: 15px;
   width: min(1100px, 92%);
   margin: 0 auto;
   margin-top: -4rem;
-
+  margin-bottom: 8rem;
   .filter {
     display: flex;
     justify-content: space-between;
@@ -18,7 +19,7 @@
     border-radius: 6px;
     padding: 0 3rem 0 2.4rem;
     width: 100%;
-    margin-bottom: 8rem;
+    // margin-bottom: 8rem;
     background-color: var(--clr-secondary-100);
 
     &__title {

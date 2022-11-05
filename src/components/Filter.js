@@ -2,27 +2,69 @@ import styles from './filter.module.scss';
 import search from '../assets/desktop/icon-search.svg';
 import filter from '../assets/sprite.svg';
 import location from '../assets/desktop/icon-location.svg';
+import { useState } from 'react';
+// import { useGetData } from 'hooks/useGetData';
+// import { useGetInput } from 'hooks/useGetInput';
+import { useContext } from 'react';
+import { DataContext } from 'helpers/data-context';
+// import { DataContext } from 'helpers/data-context';
 
-const FilterBox = ({
-  handleSearchFilter,
-  toggleModal,
-  // handleLocationSearch,
-  onChange,
-  onChangeCheckBox,
-}) => {
+const FilterBox = ({ toggleModal }) => {
+  const { data, setData } = useContext(DataContext);
   const showChecked = (e) => {
     console.log(e.target.checked);
   };
 
+  const [values, setValues] = useState({
+    isFullTime: false,
+  });
+
+  const onChange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const onChangeCheckBox = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.checked,
+    });
+  };
+
+  let filterArray = [...data];
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+
+    if (values.title) {
+      filterArray = filterArray.filter((company) =>
+        company.position.split(' ').includes(values.title)
+      );
+    }
+
+    if (values.location) {
+      console.log(values.location);
+      filterArray = filterArray.filter(
+        (company) => values.location === company.location
+      );
+    }
+
+    if (values.isFullTime) {
+      filterArray = filterArray.filter(
+        (company) => company.contract === 'Full Time'
+      );
+    } else {
+      filterArray = filterArray.filter(
+        (company) => company.contract === 'Part Time'
+      );
+    }
+    console.log(filterArray);
+    setData(filterArray);
+  };
+
   return (
     <div className={styles.filterBox}>
-      <form
-        className={styles.filter}
-        id="form"
-        onSubmit={(e) => {
-          handleSearchFilter(e);
-        }}
-      >
+      <form className={styles.filter} id="form" onSubmit={handleOnSubmit}>
         <div className={styles.filter__title}>
           <svg className={styles.iconSearch}>
             <use xlinkHref={`${filter}#icon-search`}></use>
@@ -72,7 +114,10 @@ const FilterBox = ({
               />
             </button>
           </div>
-          <button type="submit" className={styles.mediaSearchButton}>
+          <button
+            type="submit"
+            className={`applyButton ${styles.mediaSearchButton}`}
+          >
             Search
           </button>
         </div>

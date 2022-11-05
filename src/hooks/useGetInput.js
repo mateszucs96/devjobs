@@ -1,25 +1,60 @@
-import { useState } from 'react';
+// import { useState } from 'react';
+// // import { useGetData } from './useGetData';
 
-export const useGetInput = () => {
-  const [values, setValues] = useState({
-    isFullTime: false,
-  });
+// export const useGetInput = () => {
+//   // const { data, setData } = useGetData();
 
-  const onChange = (e) => {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value,
-    });
-  };
+//   const [values, setValues] = useState({
+//     isFullTime: false,
+//   });
 
-  const onChangeCheckBox = (e) => {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.checked,
-    });
-  };
+//   const onChange = (e) => {
+//     setValues({
+//       ...values,
+//       [e.target.name]: e.target.value,
+//     });
+//   };
+//   const onChangeCheckBox = (e) => {
+//     setValues({
+//       ...values,
+//       [e.target.name]: e.target.checked,
+//     });
+//   };
+// console.log('running input');
+// useEffect(() => {
+//   console.log(values);
+// }, [values]);
 
-  console.log(values);
+// useEffect(() => {
+//   let filterArray = [...data];
 
-  return [values, onChange, onChangeCheckBox];
-};
+//   console.log(values.title);
+//   if (values.title) {
+//     filterArray = filterArray.filter((company) =>
+//       // company.position.split(' ').includes(values.title)
+//       company.position.startsWith(values.title)
+//     );
+//   }
+
+//   if (values.location) {
+//     filterArray = filterArray.filter(
+//       (company) => values.location === company.location
+//     );
+//   }
+
+//   if (values.isFullTime) {
+//     filterArray = filterArray.filter(
+//       (company) => company.contract === 'Full Time'
+//     );
+//   } else {
+//     filterArray = filterArray.filter(
+//       (company) => company.contract === 'Part Time'
+//     );
+//   }
+
+//   setData(filterArray);
+//   console.log(filterArray);
+// }, [values]);
+
+// return [values, onChange, onChangeCheckBox];
+// };

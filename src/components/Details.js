@@ -1,7 +1,11 @@
+import { DataContext } from 'helpers/data-context';
+import { useContext } from 'react';
 import styles from './details.module.scss';
+import LinkButton from './Buttons/LinkButton';
 
-const Details = ({ data }) => {
-  console.log(data[0].role.items);
+const Details = () => {
+  const { data } = useContext(DataContext);
+
   return (
     <>
       <section className={styles.detailsSection}>
@@ -16,9 +20,12 @@ const Details = ({ data }) => {
             <p className={'location ' + styles.location}>{data[0].location}</p>
           </div>
 
-          <div className="applyButton">
-            <a href={data[0].website}>Apply now</a>
-          </div>
+          <LinkButton
+            link={data[0].website}
+            text="Apply now"
+            bgColor="#5964e0"
+            color="white"
+          />
         </div>
 
         <div className={styles.description}>
@@ -51,9 +58,12 @@ const Details = ({ data }) => {
             <h3 className={'title ' + styles.title}>{data[0].position}</h3>
             <p>So Digital Inc.</p>
           </div>
-          <div className="applyButton">
-            <a href={data[0].website}>Apply now</a>
-          </div>
+          <LinkButton
+            link={data[0].website}
+            text="Apply now"
+            bgColor="#5964e0"
+            color="white"
+          />
         </div>
       </footer>
     </>
