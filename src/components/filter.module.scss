@@ -59,6 +59,7 @@
     &__search {
       display: flex;
       gap: 2.8rem;
+      align-items: center;
 
       @media only screen and (min-width: $md) {
         flex: 1 0 25%;

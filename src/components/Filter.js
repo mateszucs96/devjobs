@@ -3,11 +3,8 @@ import search from '../assets/desktop/icon-search.svg';
 import filter from '../assets/sprite.svg';
 import location from '../assets/desktop/icon-location.svg';
 import { useState } from 'react';
-// import { useGetData } from 'hooks/useGetData';
-// import { useGetInput } from 'hooks/useGetInput';
 import { useContext } from 'react';
 import { DataContext } from 'helpers/data-context';
-// import { DataContext } from 'helpers/data-context';
 
 const FilterBox = ({ toggleModal }) => {
   const { data, setData } = useContext(DataContext);
@@ -97,7 +94,7 @@ const FilterBox = ({ toggleModal }) => {
               onChange={onChangeCheckBox}
             ></input>
             <div className="checkbox__box"></div>
-            Full Time
+            Full Time Only
           </label>
 
           <div className={styles.buttonContainer}>

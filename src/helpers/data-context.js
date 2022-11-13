@@ -12,25 +12,32 @@ export const DataContext = createContext({
 });
 
 const DataContextProvider = (props) => {
+  const [allData, setAllData] = useState([]);
   const [data, setData] = useState([]);
-  const [detailsData, setDetailsData] = useState([]);
   const [details, setDetails] = useState(false);
+
+  //set data and allData arrays with fetch results
+  useEffect(() => {
+    fetchData().then(setAllData);
+    console.log('running data');
+  }, []);
 
   useEffect(() => {
     fetchData().then(setData);
-    console.log('running data');
+    console.log('fetch filter');
   }, []);
 
   const handleDetailsPage = (e) => {
     const position = e.target.closest('.cardC').children[2].textContent.trim();
     const target = data.filter((element) => element.position === position);
-    setDetailsData(target);
+    console.log(target);
+    setData(target);
     setDetails(!details);
   };
 
   return (
     <DataContext.Provider
-      value={{ data, setData, detailsData, details, handleDetailsPage }}
+      value={{ data, allData, setData, details, handleDetailsPage }}
     >
       {props.children}
     </DataContext.Provider>

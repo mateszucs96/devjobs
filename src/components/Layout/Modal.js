@@ -39,7 +39,7 @@ const Modal = ({
                 onChange={onChangeCheckBox}
               ></input>
               <div className="checkbox__box"></div>
-              Full Time
+              Full Time Only
             </label>
           </div>
           <button type="submit" className="applyButton">

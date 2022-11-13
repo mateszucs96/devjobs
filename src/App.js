@@ -1,8 +1,10 @@
 import './App.css';
 import HeaderBackground from './components/HeaderBackground';
 import Header from './components/Layout/Header';
-import Main from 'components/Layout/Main';
 import { useState } from 'react';
+import Cards from './components/Cards';
+import Details from './components/Details';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -56,9 +58,14 @@ function App() {
   return (
     <div className="App" data-theme={theme}>
       <HeaderBackground setTheme={toggleTheme} />
-      <Header />
-      <Main />
-      <button>Load more</button>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Cards />} />
+
+          <Route path="/details/:id" element={<Details />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

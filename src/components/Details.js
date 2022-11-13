@@ -5,7 +5,7 @@ import LinkButton from './Buttons/LinkButton';
 
 const Details = () => {
   const { data } = useContext(DataContext);
-
+  console.log(data);
   return (
     <>
       <section className={styles.detailsSection}>
